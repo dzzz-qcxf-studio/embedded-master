@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "type": "script",
+        "name": "embedded-master-start",
+        "script": "bash hooks/session-start"
+      }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "hardware-reviewer|embedded-firmware-engineer|code-reviewer|technical-writer",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Sub-agent {{agent_type}} 已启动，正在执行嵌入式项目任务。"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "hardware-reviewer|embedded-firmware-engineer|code-reviewer|technical-writer",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Sub-agent {{agent_type}} 已完成任务。检查结果是否满足 Gate 要求。"
+          }
+        ]
+      }
+    ]
+  }
+}

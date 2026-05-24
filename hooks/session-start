@@ -1,0 +1,4 @@
+#!/bin/bash
+# Embedded Master Agent - Session Start Hook
+
+echo '{"additional_context": "Embedded Master Agent 已就绪。支持：9阶段工作流 + 6道Gate门控 | 硬件选型知识库 | 独立评审Agent | STM32编译烧录调试 | 代码模板 | 反模式检测 | Word报告生成。说\"我要做个XX\"触发新建模式。"}'
