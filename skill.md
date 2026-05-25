@@ -1081,7 +1081,26 @@ Gate 8 检查清单（强制项）：
 5. 插入表格（BOM、接口矩阵、电源树等）
 6. 保存为 `{projectPath}/docs/embedded/项目报告.docx`
 
-**Step 3：报告结构**
+**Step 3：生成汇报网页**
+
+使用 `scripts/generate_web_report.py` 生成交互式 HTML 汇报网页：
+
+```bash
+python C:/Users/ROG/.claude/skills/embedded-master/scripts/generate_web_report.py {projectPath}
+```
+
+该脚本会自动读取 `docs/embedded/` 下所有阶段产出，生成一个自包含的 HTML 仪表盘，包含：
+- 项目概览卡片（BOM成本、器件数、进度、功耗）
+- 9阶段进度条
+- Mermaid 系统框图和流程图（自动渲染）
+- BOM 物料清单（可点击淘宝搜索链接）
+- 接口矩阵和接线表
+- 电源树可视化
+- 软件架构和模块规格
+
+输出文件：`{projectPath}/docs/embedded/report.html`
+
+**Step 4：报告结构**
 
 ```
 项目报告.docx
@@ -1108,10 +1127,11 @@ Gate 8 检查清单（强制项）：
     └── B. 经验记录
 ```
 
-**Step 4：输出文件**
+**Step 5：输出文件**
 
 - `{projectPath}/docs/embedded/embedded-solution.md` — 整合方案文档
 - `{projectPath}/docs/embedded/项目报告.docx` — Word 报告
+- `{projectPath}/docs/embedded/report.html` — 汇报网页（交互式仪表盘）
 
 ---
 
@@ -1384,7 +1404,8 @@ Gate 8 检查清单（强制项）：
 ├── experience-log.md               # 经验累积记录
 ├── datasheets/                     # Datasheet文件
 ├── footprints/                     # 封装文件
-└── 项目报告.docx                   # Word报告
+├── 项目报告.docx                   # Word报告
+└── report.html                     # 汇报网页（交互式仪表盘）
 ```
 
 ---
